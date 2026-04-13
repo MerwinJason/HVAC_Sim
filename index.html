@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC System Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='css/styles.css'>
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-title">HVAC System Simulator <span>PRO</span></div>
+        <div class="header-controls">
+            <button class="btn active">AC</button>
+            <button class="btn">HP</button>
+            <select class="select-dropdown">
+                <option value="R410A">R-410A</option>
+                <option value="R32">R-32</option>
+                <option value="R22">R-22</option>
+                <option value="R454B">R-454B</option>
+            </select>
+            <button class="btn">I-P / SI</button>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <aside class="panel left-panel">
+            <h2>Components</h2>
+            <div class="component-palette" id="component-palette">
+                <!-- Draggable components will be injected here -->
+            </div>
+            <h2>System Parameters</h2>
+            <div class="parameter-controls" id="parameter-controls">
+                <!-- Sliders and inputs will go here -->
+            </div>
+        </aside>
+
+        <section class="center-panel">
+            <div class="canvas-container">
+                <canvas id="system-canvas"></canvas>
+            </div>
+            <div class="alerts-container" id="alerts-container"></div>
+        </section>
+
+        <aside class="panel right-panel">
+            <div class="tabs">
+                <button class="tab active" data-target="summary">Summary</button>
+                <button class="tab" data-target="ahri">AHRI</button>
+                <button class="tab" data-target="ph">P-h Dia</button>
+                <button class="tab" data-target="compressor">Compressor</button>
+            </div>
+            
+            <div class="tab-content active" id="summary-tab">
+                <h3>System Capacity</h3>
+                <div class="instrument-display">
+                    <span class="label">Total BTUH</span>
+                    <span class="value" id="disp-btuh">36,000</span>
+                </div>
+                <div class="instrument-display">
+                    <span class="label">SEER2</span>
+                    <span class="value" id="disp-seer2">16.5</span>
+                </div>
+                <div class="instrument-display">
+                    <span class="label">SHR</span>
+                    <span class="value" id="disp-shr">0.75</span>
+                </div>
+            </div>
+
+            <div class="tab-content" id="ahri-tab">
+                <h3>AHRI Ratings</h3>
+                <p>Bin table will appear here.</p>
+            </div>
+
+            <div class="tab-content" id="compressor-tab">
+                <!-- Compressor Lab UI will be injected here via panels.js -->
+            </div>
+        </aside>
+    </main>
+
+    <script type='module' src='js/main.js'></script>
+</body>
+</html>
